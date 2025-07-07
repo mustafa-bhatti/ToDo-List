@@ -1,0 +1,90 @@
+:root {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(0, 0, 0);
+}
+*{
+    color: rgb(207, 207, 207);
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 40px;
+    font-size: 24px;
+
+}
+
+
+.nav-btns button {
+
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    -ms-border-radius: 14px;
+    -o-border-radius: 14px;
+    border-radius: 14px;
+}
+.front-image > h1 {
+
+    display: inline-block;
+    font-size: 150px;
+    background-color: transparent;
+    margin-top: 130px;
+    margin-left: 110px;
+    color: orange;
+    white-space: pre;
+    text-shadow: 3px 1px 3px rgb(130, 47, 12);
+}
+
+.front-image{
+    width: 1500px;
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image: url("images/home.jpg");
+}
+.menu-grid{
+    display: grid;
+    margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    grid-template-columns: repeat(2,300px);
+    /* background-color: rgba(255, 188, 44, 0.717); */
+}
+.menu-card{
+    font-size: 12px;
+    padding: 10px;
+    background-color: rgba(228, 111, 8, 0.393);
+    box-shadow: 2px 5px 3px rgba(165, 42, 42, 0.37);
+}
+.menu-card h1{
+    text-transform: capitlize;
+    font-weight: 400;
+}
+.card-img{
+    width: 250px;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.pancakes{
+    background-image: url("./images/pancakes.jpg");
+}
+.pasta{
+    background-image: url(./images/pasta.jpg);
+}
+.salad{
+    background-image: url(images/salad.jpg);
+}
+.pizza{
+    background-image: url(images/pizza.jpg);
+}
