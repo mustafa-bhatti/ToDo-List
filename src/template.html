@@ -32,24 +32,31 @@
                     <h1>New Task</h1>
                     <div class="input-div">
                     <label for="formTaskName">Name</label>
-                    <input id="formTaskName" name="formTaskName" type="text">
+                    <input id="formTaskName" name="formTaskName" type="text" required>
                     </div>
 
                     <div class="input-div">
                     <label for="formTaskDesc">Description</label>
-                    <input id="formTaskDesc" name="formTaskDesc" type="text">
+                    <input id="formTaskDesc" name="formTaskDesc" type="text" required>
                     </div>
 
                     <div class="input-div">
                     <label for="formTaskDueDate">Due Date</label>
-                    <input id="formTaskDueDate" name="formTaskDueDate" type="Date">
+                    <input id="formTaskDueDate" name="formTaskDueDate" type="Date" required>
 
+                    <div class="form-dropdowns">
                     <label for="formTaskPriority">Priority</label>
                     <select id="formTaskPriority" name="formTaskPriority">
                         <option>Normal</option>
                         <option>High</option>
                         <option>Low</option>
                     </select>
+                    
+                    <label for="formTaskProject">Project</label>
+                    <select id="formTaskProject" name="formTaskProject">
+                        <option>Default</option>
+                    </select>
+                    </div>
                     </div>
 
                     <button type="submit" id="submitTaskbtn" class="new-task-btn">Add</button>

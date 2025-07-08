@@ -135,6 +135,11 @@ select{
     padding: 8px 5px;
     border-radius: 12px;
 }
+
+.form-dropdowns > *{
+    margin-top: 10px;
+    margin-right: 10px;
+}
 #submitTaskbtn{
     margin-top: 10px;
     max-width: 100px;
