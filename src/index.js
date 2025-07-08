@@ -1,7 +1,13 @@
 console.log("Running")
 import "./styles.css"
 import project from "./createProject"
+import { showProjects } from "./render"
 
-const project1 = new project("Demo","TBD")
-project1.createTask("Hello world","writing","21-5-2025","high")
-console.log(project1)
+const initialLoad = (function(){
+    const projectList = []
+    const defaultProject = new project("Default","TBD");
+    projectList.push(defaultProject)
+    showProjects(projectList)
+    }
+
+)()

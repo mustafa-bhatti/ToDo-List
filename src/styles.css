@@ -94,3 +94,9 @@ button:active{
     color: white;
     background-color: var(--gray-medium);
 }
+.projects{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
