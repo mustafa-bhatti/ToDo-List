@@ -1,18 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+
     --light-gray: #fafafa;
     --gray-light: #aaaaaa;
+    --gray-medium: rgb(96, 96, 96);
     --orange: rgb(210, 95, 0);
+    --gray-low: rgba(151, 151, 151, 0.445);
 
 }
 html{
     font-family: 'Montserrat', Arial, sans-serif;
-    font: 62.5%;
+    font-size: 82.5%;
 }
-
+body{
+    margin: 0px;
+    padding: 0px;
+}
 .main{
     display: grid;
     grid-template-columns: minmax(17%,130px) 4fr;
@@ -29,4 +33,64 @@ html{
 
 .tasks-container{
     background-color: white;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+}
+.logo,.nav-buttons,.projects-container{
+    padding-left: 10px;
+
+}
+.nav-buttons{
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-low);
+}
+button {
+    background-color: white;
+    border: 1px solid var(--gray-light  );
+    outline: none;
+    cursor: pointer;
+    min-width: 70px;
+    max-width: 90px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.new-task-btn{
+    max-width: 140px;
+    padding: 13px 20px;
+    color: white;
+    background: linear-gradient(to right, red, orange);
+    border: none;
+    transform: all 3s ease;
+}
+.new-task-btn:active{
+    color: black;
+}
+.new-task-btn:hover{
+    background: linear-gradient(to right, orange,red);
+}
+.new-project-btn{
+    max-width: 140px;
+    padding: 13px 20px;
+    color: white;
+    background: linear-gradient(to right, blue,violet);
+    border: none;
+    transform: all 3s ease;
+}
+.new-project-btn:hover{
+    background: linear-gradient(to left, blue,violet);
+    
+}
+button:active{
+    color: white;
+    background-color: var(--gray-medium);
 }
