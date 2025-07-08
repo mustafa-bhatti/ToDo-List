@@ -1,9 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: rgb(0, 0, 0);
+    --light-gray: #fafafa;
+    --gray-light: #aaaaaa;
+    --orange: rgb(210, 95, 0);
+
 }
-*{
-    color: rgb(207, 207, 207);
+html{
+    font-family: 'Montserrat', Arial, sans-serif;
+    font: 62.5%;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: minmax(17%,130px) 4fr;
+    height: 100vh;
+    
+}
+.sidebar-container{
+    background-color: var(--light-gray);
+}
+.logo{
+    color: var(--orange);
+}
+
+
+.tasks-container{
+    background-color: white;
 }
