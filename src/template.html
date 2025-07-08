@@ -26,6 +26,7 @@
         <div class="tasks-container">
             <h1>Tasks</h1>
         </div>
+        <!-- Task Dialog -->
         <dialog id="task-dialog" closedby="any">
             <form action="#" method="dialog" id="new-task-form" name="taskForm">
                 <h1>New Task</h1>
@@ -61,9 +62,19 @@
                 <button type="submit" id="submitTaskbtn" class="new-task-btn">Add</button>
             </form>
             </dialog>
+            <!-- Project Dialog -->
             <dialog closedby="any" id="project-dialog">
                 <form method="dialog" name="project-form">
-                    
+                    <h1>New Project</h1>
+                    <div class="input-div">
+                        <label for="formProjectName">Name</label>
+                        <input id="formProjectName" name="formProjectName" type="text" required>
+                    </div>
+                    <div class="input-div">
+                        <label for="formProjectDesc">Description</label>
+                        <input id="formProjectName" name="formProjectName" type="text" required>
+                    </div> 
+                    <button type="submit" id="submitTaskbtn" class="new-project-btn">Add</button>
                 </form>
             </dialog>
         </div>
