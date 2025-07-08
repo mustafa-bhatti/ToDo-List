@@ -2,13 +2,18 @@ console.log("Running")
 import "./styles.css"
 import project from "./createProject"
 import { showProjects } from "./render"
-
+import { formInputTask } from "./ui"
+export const projectList = []
 const initialLoad = (function(){
-    const projectList = []
     const defaultProject = new project("Default","TBD");
     projectList.push(defaultProject)
-    showProjects(projectList)
+    // render the initial default project
+    showProjects(projectList) 
     const dialog = document.querySelector("dialog");
     dialog.showModal()
-    }
+    formInputTask()
+
+
+
+}
 )()
