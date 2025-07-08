@@ -8,6 +8,7 @@ const initialLoad = (function(){
     const defaultProject = new project("Default","TBD");
     projectList.push(defaultProject)
     showProjects(projectList)
+    const dialog = document.querySelector("dialog");
+    dialog.showModal()
     }
-
 )()
