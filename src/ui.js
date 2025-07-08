@@ -1,7 +1,10 @@
 import task from "./task";
 import { projectList } from ".";
+import project from "./createProject";
 
-const taskForm = document.forms["taskForm"];
+const taskForm = document.forms["task-form"];
+const porjectForm = document.forms["project-form"];
+
 const newTaskButton = document.querySelector(".new-task-btn")
 const newProjectButton = document.querySelector(".new-project-btn")
 
@@ -28,14 +31,18 @@ const formInputTask = function(){
             )
             
         }
-        else {
-            console.error("Error: Unable to add project");
-        }
         console.log(projectList)
         
     })
 }
 
+const formInputProject = function(){
+    const projectName = porjectForm["formProjectName"].value;
+    const projectDesc = porjectForm["formProjectDesc"].value;
+    const projectToBeAdded = new project(projectName,projectDesc);
+    projectList.push(projectToBeAdded)
+    console.log(projectList)
+}
 export const eventListeners = function(){
     taskForm.addEventListener("submit",formInputTask)
     newTaskButton.addEventListener("click",()=>{
@@ -44,4 +51,5 @@ export const eventListeners = function(){
     newProjectButton.addEventListener("click",()=>{
         projectDialog.showModal()
     })
+    porjectForm.addEventListener("submit",formInputProject)
 }
