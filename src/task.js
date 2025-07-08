@@ -3,16 +3,16 @@ export default class task {
         this.title = title,
         this.description = description,
         this.dueDate = dueDate,
-        this.priority = priority
+        this.taskriority = priority
     }
     //getters
-    get title() {
+    get name() {
         return this.title
     }
-    get description(){
+    get desc(){
         return this.description
     }
-    get dueDate(){
+    get date(){
         return this.dueDate
     }
     get priority(){
