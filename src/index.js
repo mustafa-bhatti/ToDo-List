@@ -1,6 +1,6 @@
 import "./styles.css"
 import project from "./createProject"
-import { showProjects } from "./render"
+import { showProjects , renderTasks } from "./render"
 import { eventListeners } from "./ui"
 export const projectList = []
 const initialLoad = (function(){
@@ -8,9 +8,10 @@ const initialLoad = (function(){
     defaultProject.createTask("Learn Web Dev","TBD","21-05-2026","Normal")
     projectList.push(defaultProject)
     console.log(projectList)
-    // render the initial default project
+    // render the initial default p roject
     showProjects(projectList) 
     eventListeners()
+    renderTasks(defaultProject.tasks)
 
 
 

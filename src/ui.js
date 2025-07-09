@@ -43,11 +43,15 @@ const formInputProject = function(){
     const projectDesc = porjectForm["formProjectDesc"].value;
     const projectToBeAdded = new project(projectName,projectDesc);
     projectList.push(projectToBeAdded)
-    showProjects(projectList)
+    showProjects(projectList) 
     updateProjectsInTaskDialog(projectList)
     porjectForm.reset();
 }
 
+/**
+ * Sets up all main event listeners for the UI.
+ * Call this once after the DOM is loaded.
+ */
 export const eventListeners = function(){
     taskForm.addEventListener("submit",formInputTask)
     newTaskButton.addEventListener("click",()=>{

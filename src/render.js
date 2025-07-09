@@ -1,3 +1,5 @@
+import trash from "./images/trash.png"
+import edit from "./images/edit.png"
 const projectDiv = document.querySelector(".projects");
 export const showProjects=function(projectList){
     projectDiv.innerHTML=""
@@ -17,6 +19,61 @@ export const updateProjectsInTaskDialog = function(projectList){
         projectSelectElement.appendChild(opt)
     })
 }
+
+export const renderTasks = function(taskList){
+    const tasksFlexContainer = document.querySelector(".tasks-flexbox")
+    taskList.forEach((currentTask)=>{
+        const taskDiv = document.createElement("div")
+        taskDiv.className = "task"
+
+        if (currentTask.priority != "normal"){
+            taskDiv.classList.add(currentTask.priority)
+        }
+
+        const taskHeading = document.createElement("div")
+        taskHeading.className = "task-heading"
+        // task heading children
+            const heading = document.createElement("h2")
+            heading.textContent = currentTask.name
+            // date
+            const dateP = document.createElement("p")
+            const text = document.createTextNode(currentTask.date)
+            dateP.appendChild(text)
+
+        taskHeading.appendChild(heading)
+        taskHeading.appendChild(dateP)
+
+        const taskContent = document.createElement("div")
+        taskContent.className ="task-content"
+        // children of taskcontent
+            const descP = document.createElement("p")
+            text.textContent = currentTask.desc
+            descP.appendChild(text)
+            // icons
+            const icons = document.createElement("div")
+            icons.className ="icons"
+
+            const trashIcon = new Image(18,18)
+            trashIcon.src = trash
+            const editIcon = new Image(16,16)
+            editIcon.src = edit
+
+            icons.appendChild(trashIcon)
+            icons.appendChild(editIcon)
+        
+        taskContent.appendChild(descP)
+        taskContent.appendChild(icons)
+        
+        taskDiv.appendChild(taskHeading)
+        taskDiv.appendChild(taskContent)
+        
+        // final append to the parent div
+        tasksFlexContainer.appendChild(taskDiv)
+    })
+
+
+}
+
 
 
 

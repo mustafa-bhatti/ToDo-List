@@ -159,10 +159,10 @@ select{
     border: 2px solid gray;
     padding: 10px;
 }
-.high-priority{
+.high{
     border: 2px solid red;
 }
-.low-priority{
+.low{
     border: 2px solid orange;
 
 }
