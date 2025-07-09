@@ -144,3 +144,47 @@ select{
     margin-top: 10px;
     max-width: 100px;
 }
+
+/* RIGHT SIDE TASKS STYLING RULES */
+.tasks-flexbox{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-right: 10px;
+
+}
+.task{
+    border-radius: 10px;
+    background-color: var(--light-gray);
+    border: 2px solid gray;
+    padding: 10px;
+}
+.high-priority{
+    border: 2px solid red;
+}
+.low-priority{
+    border: 2px solid orange;
+
+}
+.task p{
+    margin-top: 5px;
+}
+.task-heading,.task-content{
+    display: flex;
+    justify-content: space-between;
+}
+.task-heading > *{
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+
+.task-content{
+    align-items: center;
+}
+.icons{
+    min-width: 60px;
+}
+.icon{
+    cursor: pointer;
+    margin-left: 5px;
+}
