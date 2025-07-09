@@ -37,8 +37,9 @@ export const renderTasks = function(taskList){
             heading.textContent = currentTask.name
             // date
             const dateP = document.createElement("p")
-            const text = document.createTextNode(currentTask.date)
-            dateP.appendChild(text)
+            dateP.textContent = currentTask.date
+            console.log(dateP)
+
 
         taskHeading.appendChild(heading)
         taskHeading.appendChild(dateP)
@@ -47,23 +48,27 @@ export const renderTasks = function(taskList){
         taskContent.className ="task-content"
         // children of taskcontent
             const descP = document.createElement("p")
-            text.textContent = currentTask.desc
-            descP.appendChild(text)
+            descP.textContent = currentTask.desc
             // icons
             const icons = document.createElement("div")
             icons.className ="icons"
 
             const trashIcon = new Image(18,18)
             trashIcon.src = trash
+            trashIcon.classList.add("icon","trash") 
+            // trashIcon.id ="trash"
+            trashIcon.alt ="trash"
+
             const editIcon = new Image(16,16)
             editIcon.src = edit
+            editIcon.classList.add("icon","edit") 
 
             icons.appendChild(trashIcon)
             icons.appendChild(editIcon)
         
         taskContent.appendChild(descP)
         taskContent.appendChild(icons)
-        
+
         taskDiv.appendChild(taskHeading)
         taskDiv.appendChild(taskContent)
         

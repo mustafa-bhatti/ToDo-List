@@ -3,7 +3,7 @@ export default class task {
         this.title = title,
         this.description = description,
         this.dueDate = dueDate,
-        this.taskriority = priority
+        this.taskPriority = priority
     }
     //getters
     get name() {
@@ -16,7 +16,7 @@ export default class task {
         return this.dueDate
     }
     get priority(){
-        return this.priority
+        return this.taskPriority
     }
     
 }
