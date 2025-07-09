@@ -1,7 +1,7 @@
 import task from "./task";
 import { projectList } from ".";
 import project from "./createProject";
-import { showProjects } from "./render";
+import { showProjects, updateProjectsInTaskDialog } from "./render";
 
 const taskForm = document.forms["task-form"];
 const porjectForm = document.forms["project-form"];
@@ -30,6 +30,7 @@ const formInputTask = function(){
                 taskDueDate,
                 taskPriority
             )
+            taskForm.reset()
             
         }
         console.log(projectList)
@@ -43,8 +44,10 @@ const formInputProject = function(){
     const projectToBeAdded = new project(projectName,projectDesc);
     projectList.push(projectToBeAdded)
     showProjects(projectList)
-    console.log(projectList)
+    updateProjectsInTaskDialog(projectList)
+    porjectForm.reset();
 }
+
 export const eventListeners = function(){
     taskForm.addEventListener("submit",formInputTask)
     newTaskButton.addEventListener("click",()=>{

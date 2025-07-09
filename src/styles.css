@@ -57,7 +57,7 @@ button {
     outline: none;
     cursor: pointer;
     min-width: 70px;
-    max-width: 90px;
+    max-width: 100px;
     padding: 10px 20px;
     font-size: 1rem;
     font-weight: bold;
