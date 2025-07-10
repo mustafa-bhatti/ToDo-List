@@ -1,6 +1,6 @@
 import task from "./task";
 import { projectList } from ".";
-import project from "./createProject";
+import Project from "./createProject";
 import { showProjects, updateProjectsInTaskDialog } from "./render";
 
 const taskForm = document.forms["task-form"];
@@ -41,7 +41,7 @@ const formInputTask = function(){
 const formInputProject = function(){
     const projectName = porjectForm["formProjectName"].value;
     const projectDesc = porjectForm["formProjectDesc"].value;
-    const projectToBeAdded = new project(projectName,projectDesc);
+    const projectToBeAdded = new Project(projectName,projectDesc);
     projectList.push(projectToBeAdded)
     showProjects(projectList) 
     updateProjectsInTaskDialog(projectList)

@@ -1,10 +1,12 @@
 import trash from "./images/trash.png"
 import edit from "./images/edit.png"
 const projectDiv = document.querySelector(".projects");
+
 export const showProjects=function(projectList){
     projectDiv.innerHTML=""
     projectList.forEach(element => {
         const projectButton = document.createElement("button")
+        projectButton.className="projectBtn"
         projectButton.textContent = element.name
         projectDiv.appendChild(projectButton)
     });
@@ -22,6 +24,7 @@ export const updateProjectsInTaskDialog = function(projectList){
 
 export const renderTasks = function(taskList){
     const tasksFlexContainer = document.querySelector(".tasks-flexbox")
+    tasksFlexContainer.innerHTML=""
     taskList.forEach((currentTask)=>{
         const taskDiv = document.createElement("div")
         taskDiv.className = "task"

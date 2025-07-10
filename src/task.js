@@ -1,11 +1,15 @@
-export default class task {
+export default class Task {
     constructor(title,description,dueDate,priority){
         this.title = title,
         this.description = description,
         this.dueDate = dueDate,
         this.taskPriority = priority
+        this.taskId = crypto.randomUUID()
     }
     //getters
+    get id(){
+        return this.taskId
+    }
     get name() {
         return this.title
     }
