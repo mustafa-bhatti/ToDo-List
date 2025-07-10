@@ -1,7 +1,7 @@
 import task from "./task";
 import { projectList } from ".";
 import Project from "./createProject";
-import { showProjects, updateProjectsInTaskDialog } from "./render";
+import { renderTasks, showProjects, updateProjectsInTaskDialog } from "./render";
 
 const taskForm = document.forms["task-form"];
 const porjectForm = document.forms["project-form"];
@@ -31,7 +31,7 @@ const formInputTask = function(){
                 taskPriority
             )
             taskForm.reset()
-            
+            renderTasks(element.taskList)
         }
         console.log(projectList)
         
