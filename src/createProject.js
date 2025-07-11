@@ -20,14 +20,14 @@ export default class Project{
     get description(){
         return this.projectDescription
     }
+    get tasks(){
+        return this.taskList
+    }
     set name(newName){
         this.projectName = newName
     }
     set description(newDescription){
         this.projectDescription = newDescription
-    }
-    get tasks(){
-        return this.taskList
     }
 
 }

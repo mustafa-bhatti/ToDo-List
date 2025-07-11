@@ -31,7 +31,8 @@ const formInputTask = function(){
                 taskPriority
             )
             taskForm.reset()
-            renderTasks(element.taskList)
+            console.log("before: ",element.name,element.taskList)
+            renderTasks(element.name,element.taskList)
         }
         console.log(projectList)
         

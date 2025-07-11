@@ -1,6 +1,7 @@
 import trash from "./images/trash.png"
 import edit from "./images/edit.png"
 const projectDiv = document.querySelector(".projects");
+// TODO 
 
 export const showProjects=function(projectList){
     projectDiv.innerHTML=""
@@ -22,10 +23,14 @@ export const updateProjectsInTaskDialog = function(projectList){
     })
 }
 
-export const renderTasks = function(taskList){
+export const renderTasks = function(projectName,taskList){
     const tasksFlexContainer = document.querySelector(".tasks-flexbox")
+    const taskHeading = document.querySelector("#tasks-heading")
+    console.log("check",projectName)
+    taskHeading.textContent = projectName
     tasksFlexContainer.innerHTML=""
     taskList.forEach((currentTask)=>{
+
         const taskDiv = document.createElement("div")
         taskDiv.className = "task"
 
@@ -41,7 +46,6 @@ export const renderTasks = function(taskList){
             // date
             const dateP = document.createElement("p")
             dateP.textContent = currentTask.date
-            console.log(dateP)
 
 
         taskHeading.appendChild(heading)

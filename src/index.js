@@ -11,7 +11,7 @@ const initialLoad = (function(){
     // render the initial default p roject
     showProjects(projectList) 
     eventListeners()
-    renderTasks(defaultProject.tasks)
+    renderTasks(defaultProject.name,defaultProject.tasks)
 
 
 
