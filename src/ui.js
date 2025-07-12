@@ -71,3 +71,6 @@ export const switchToProject = function(e){
         }
     })
 }
+export const deleteTaskEvent = function(e){
+    
+}
