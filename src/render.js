@@ -1,5 +1,6 @@
 import trash from "./images/trash.png"
 import edit from "./images/edit.png"
+import { switchToProject } from "./ui";
 const projectDiv = document.querySelector(".projects");
 // TODO 
 
@@ -9,6 +10,8 @@ export const showProjects=function(projectList){
         const projectButton = document.createElement("button")
         projectButton.className="projectBtn"
         projectButton.textContent = element.name
+        projectButton.dataset.projectId= element.id
+        projectButton.addEventListener("click",switchToProject)
         projectDiv.appendChild(projectButton)
     });
 }
@@ -26,7 +29,6 @@ export const updateProjectsInTaskDialog = function(projectList){
 export const renderTasks = function(projectName,taskList){
     const tasksFlexContainer = document.querySelector(".tasks-flexbox")
     const taskHeading = document.querySelector("#tasks-heading")
-    console.log("check",projectName)
     taskHeading.textContent = projectName
     tasksFlexContainer.innerHTML=""
     taskList.forEach((currentTask)=>{

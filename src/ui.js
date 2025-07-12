@@ -63,3 +63,11 @@ export const eventListeners = function(){
     })
     porjectForm.addEventListener("submit",formInputProject)
 }
+
+export const switchToProject = function(e){
+    projectList.forEach((currentProject)=>{
+        if (currentProject.id == e.target.dataset.projectId){
+            renderTasks(currentProject.name,currentProject.taskList)
+        }
+    })
+}
