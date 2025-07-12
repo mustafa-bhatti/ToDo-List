@@ -35,7 +35,9 @@ export const renderTasks = function(projectName,taskList){
 
         const taskDiv = document.createElement("div")
         taskDiv.className = "task"
-        
+        // sets the task id
+        taskDiv.dataset.taskId=currentTask.id
+
         if (currentTask.priority != "normal"){
             taskDiv.classList.add(currentTask.priority)
         }
