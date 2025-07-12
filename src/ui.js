@@ -71,6 +71,11 @@ export const switchToProject = function(e){
         }
     })
 }
-export const deleteTaskEvent = function(e){
-    
+export const deleteTaskEvent = function(taskToDelete){
+    projectList.forEach((currentProject)=>{
+        if (currentProject.id == taskToDelete.parentId){
+            currentProject.removeTaskFromList(taskToDelete.id)
+            renderTasks(currentProject.name,currentProject.taskList)
+        }
+    })
 }

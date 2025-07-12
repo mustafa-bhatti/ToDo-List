@@ -69,7 +69,9 @@ export const renderTasks = function(projectName,taskList){
             trashIcon.classList.add("icon","trash") 
             // trashIcon.id ="trash"
             trashIcon.alt ="trash"
-            trashIcon.addEventListener("click",deleteTaskEvent)
+            trashIcon.addEventListener("click",()=>{
+                deleteTaskEvent(currentTask)
+            })
 
             const editIcon = new Image(16,16)
             editIcon.src = edit
