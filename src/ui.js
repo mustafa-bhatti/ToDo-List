@@ -1,7 +1,7 @@
 import { projectList } from ".";
 import Project from "./createProject";
 import { renderTasks, showProjects, updateProjectsInTaskDialog } from "./render";
-import { format , compareAsc } from "date-fns"
+import { format , isAfter } from "date-fns"
 const taskForm = document.forms["task-form"];
 const porjectForm = document.forms["project-form"];
 const editTaskForm = document.forms["edit-task-form"]
@@ -9,6 +9,7 @@ const editTaskForm = document.forms["edit-task-form"]
 const newTaskButton = document.querySelector(".new-task-btn")
 const newProjectButton = document.querySelector(".new-project-btn")
 const currentDateButton = document.querySelector(".today-btn")
+const futureDateButton = document.querySelector(".future-btn")
 
 
 const taskDialog = document.querySelector("#task-dialog");
@@ -67,7 +68,7 @@ const editTaskFormInput = function(e){
 }
 export const showTodayTasks = function(){
     const todayDate = format(new Date,'PPPP')
-    const todayTaskObject = new Project("Today","")
+    const todayTaskObject = new Project("TODAY","")
     projectList.forEach((currentProject)=>{
         currentProject.taskList.forEach((currentTask)=>{
             if (currentTask.date == todayDate){
@@ -79,13 +80,28 @@ export const showTodayTasks = function(){
     console.log(todayTaskObject.taskList)
 }
 
-
+const showFutureTasks = function(){
+    const todayDate = format(new Date,'yyyy-MM-dd')
+    const futureTaskObject = new Project("UPCOMMING","")
+    projectList.forEach((currentProject)=>{
+        currentProject.taskList.forEach((currentTask)=>{
+            console.log(currentTask.date," today DATE",todayDate)
+            console.log(isAfter(new Date(currentTask.date),new Date()))
+            if (isAfter(currentTask.date,todayDate)){
+                futureTaskObject.addTask(currentTask)
+            }
+        })
+    })
+    renderTasks(futureTaskObject)
+    console.log(futureTaskObject.taskList)
+}
 /**
  * Sets up all main event listeners for the UI.
  * Call this once after the DOM is loaded.
  */
 export const eventListeners = function(){
     currentDateButton.addEventListener("click",showTodayTasks)
+    futureDateButton.addEventListener("click",showFutureTasks)
     taskForm.addEventListener("submit",formInputTask)
     editTaskForm.addEventListener("submit",editTaskFormInput)
     porjectForm.addEventListener("submit",formInputProject)
