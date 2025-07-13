@@ -32,7 +32,6 @@ export const renderTasks = function(currentProject){
     taskHeading.textContent = currentProject.name
     projectDescription.textContent  = currentProject.desc
     const taskList = currentProject.tasks
-    console.log(currentProject)
     tasksFlexContainer.innerHTML=""
     taskList.forEach((currentTask)=>{
         const taskDiv = document.createElement("div")

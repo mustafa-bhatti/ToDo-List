@@ -1,7 +1,7 @@
 import { projectList } from ".";
 import Project from "./createProject";
 import { renderTasks, showProjects, updateProjectsInTaskDialog } from "./render";
-
+import { format } from "date-fns"
 const taskForm = document.forms["task-form"];
 const porjectForm = document.forms["project-form"];
 const editTaskForm = document.forms["edit-task-form"]
@@ -19,7 +19,8 @@ const formInputTask = function(){
     const taskDueDate  = taskForm["formTaskDueDate"].value;
     const taskPriority = taskForm["formTaskPriority"].value;
     const taskProject = taskForm["formTaskProject"].value;
-    
+    const formatDate = format(new Date(taskDueDate),'PPPP')
+    console.log(formatDate)
     // find the project and append the task there
     // console.log("debug: ",taskProject,projectList)
     projectList.forEach((currentProject) =>{
@@ -27,7 +28,7 @@ const formInputTask = function(){
             currentProject.createTask(
                 taskName1,
                 taskDescription,
-                taskDueDate,
+                formatDate,
                 taskPriority
             )
             taskForm.reset()
