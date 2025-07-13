@@ -26,5 +26,11 @@ export default class Task {
     get parentId(){
         return this.taskProjectId
     }
+    updateTaskDetails(attributes){
+        this.title = attributes.name,
+        this.description = attributes.description,
+        this.dueDate = attributes.dueDate,
+        this.taskPriority = attributes.priority
+    }
     
 }

@@ -7,14 +7,20 @@ export default class Project{
         this.taskList = [],
         this.projectId = crypto.randomUUID()
     }
+
     createTask(taskName,taskDescription,dueDate,priority){
         const taskTobeAdded = new Task(taskName,taskDescription,dueDate,priority,this.projectId)
         this.taskList.push(taskTobeAdded)
     }
+
     removeTaskFromList(taskId){
         const index = this.taskList.findIndex(task => task.id == taskId)
-        this.taskList.splice(index,1
-        )
+        this.taskList.splice(index,1)
+    }
+
+    editTaskFromList(taskId,attributes){
+        const index = this.taskList.findIndex(task => task.id == taskId)
+        this.taskList[index].updateTaskDetails(attributes)
     }
     get id(){
         return this.projectId
@@ -28,11 +34,6 @@ export default class Project{
     get tasks(){
         return this.taskList
     }
-    set name(newName){
-        this.projectName = newName
-    }
-    set description(newDescription){
-        this.projectDescription = newDescription
-    }
+
 
 }

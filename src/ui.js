@@ -46,8 +46,20 @@ const formInputProject = function(){
     porjectForm.reset();
 }
 
-const editTaskFormInput = function(){
-
+const editTaskFormInput = function(e){
+    const currentForm = e.target
+    projectList.forEach((currentProject)=>{
+        if (currentProject.id==currentForm.dataset.projectId){
+            const attributes = {
+                name: currentForm["formTaskName"].value,
+                description: currentForm["formTaskDesc"].value,
+                dueDate: currentForm["formTaskDueDate"].value,
+                priority: currentForm["formTaskPriority"].value,
+            }
+            currentProject.editTaskFromList(currentForm.dataset.taskId,attributes)
+            renderTasks(currentProject.name,currentProject.taskList)
+        }
+    })
 }
 
 /**
@@ -55,12 +67,9 @@ const editTaskFormInput = function(){
  * Call this once after the DOM is loaded.
  */
 export const eventListeners = function(){
-    taskForm.addEventListener("submit",function(){
-        formInputTask()
-    })
-    editTaskForm.addEventListener("submit",function(){
-        editTaskFormInput()
-    })
+    taskForm.addEventListener("submit",formInputTask)
+    editTaskForm.addEventListener("submit",editTaskFormInput)
+    porjectForm.addEventListener("submit",formInputProject)
     newTaskButton.addEventListener("click",()=>{
         taskForm.reset()
         taskDialog.showModal()
@@ -68,7 +77,6 @@ export const eventListeners = function(){
     newProjectButton.addEventListener("click",()=>{
         projectDialog.showModal()
     })
-    porjectForm.addEventListener("submit",formInputProject)
 }
 
 export const switchToProject = function(e){
@@ -97,5 +105,9 @@ export const editTaskEvent = function(taskToEdit){
     taskDescription.value = taskToEdit.desc
     taskDueDate.value = taskToEdit.date 
     taskPriority.value = taskToEdit.priority
+    editTaskForm.dataset.taskId = taskToEdit.id
+    editTaskForm.dataset.projectId = taskToEdit.parentId
+
+
     editTaskDialog.showModal()
 }

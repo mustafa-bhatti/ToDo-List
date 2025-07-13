@@ -27,6 +27,7 @@ export const updateProjectsInTaskDialog = function(projectList){
 
 export const renderTasks = function(projectName,taskList){
     const tasksFlexContainer = document.querySelector(".tasks-flexbox")
+    
     const taskHeading = document.querySelector("#tasks-heading")
     taskHeading.textContent = projectName
     tasksFlexContainer.innerHTML=""
@@ -76,7 +77,7 @@ export const renderTasks = function(projectName,taskList){
             editIcon.classList.add("icon","edit") 
             editIcon.alt = "edit"
             editIcon.addEventListener("click",()=>{
-                editTaskEvent(projectName,currentTask)
+                editTaskEvent(currentTask)
             })
 
             icons.appendChild(trashIcon)
