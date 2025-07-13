@@ -1,12 +1,15 @@
 import { projectList } from ".";
 import Project from "./createProject";
 import { renderTasks, showProjects, updateProjectsInTaskDialog } from "./render";
-import { format } from "date-fns"
+import { format , compareAsc } from "date-fns"
 const taskForm = document.forms["task-form"];
 const porjectForm = document.forms["project-form"];
 const editTaskForm = document.forms["edit-task-form"]
+
 const newTaskButton = document.querySelector(".new-task-btn")
 const newProjectButton = document.querySelector(".new-project-btn")
+const currentDateButton = document.querySelector(".today-btn")
+
 
 const taskDialog = document.querySelector("#task-dialog");
 const projectDialog = document.querySelector("#project-dialog");
@@ -19,7 +22,7 @@ const formInputTask = function(){
     const taskDueDate  = taskForm["formTaskDueDate"].value;
     const taskPriority = taskForm["formTaskPriority"].value;
     const taskProject = taskForm["formTaskProject"].value;
-    const formatDate = format(new Date(taskDueDate),'PPPP')
+    const formatDate = format(taskDueDate,'PPPP')
     console.log(formatDate)
     // find the project and append the task there
     // console.log("debug: ",taskProject,projectList)
@@ -62,17 +65,35 @@ const editTaskFormInput = function(e){
         }
     })
 }
+export const showTodayTasks = function(){
+    const todayDate = format(new Date,'PPPP')
+    const todayTaskObject = new Project("Today","")
+    projectList.forEach((currentProject)=>{
+        currentProject.taskList.forEach((currentTask)=>{
+            if (currentTask.date == todayDate){
+                todayTaskObject.addTask(currentTask)
+            }
+        })
+    })
+    renderTasks(todayTaskObject)
+    console.log(todayTaskObject.taskList)
+}
+
 
 /**
  * Sets up all main event listeners for the UI.
  * Call this once after the DOM is loaded.
  */
 export const eventListeners = function(){
+    currentDateButton.addEventListener("click",showTodayTasks)
     taskForm.addEventListener("submit",formInputTask)
     editTaskForm.addEventListener("submit",editTaskFormInput)
     porjectForm.addEventListener("submit",formInputProject)
     newTaskButton.addEventListener("click",()=>{
+
         taskForm.reset()
+        const todayDate = format(new Date,'yyyy-MM-dd')
+        taskForm["formTaskDueDate"].value = todayDate
         taskDialog.showModal()
     })
     newProjectButton.addEventListener("click",()=>{

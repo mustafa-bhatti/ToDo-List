@@ -12,7 +12,9 @@ export default class Project{
         const taskTobeAdded = new Task(taskName,taskDescription,dueDate,priority,this.projectId)
         this.taskList.push(taskTobeAdded)
     }
-
+    addTask(taskInstance){
+        this.taskList.push(taskInstance)
+    }
     removeTaskFromList(taskId){
         const index = this.taskList.findIndex(task => task.id == taskId)
         this.taskList.splice(index,1)
