@@ -28,7 +28,7 @@ export default class Project{
     get name(){
         return this.projectName
     }
-    get description(){
+    get desc(){
         return this.projectDescription
     }
     get tasks(){

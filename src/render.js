@@ -25,14 +25,16 @@ export const updateProjectsInTaskDialog = function(projectList){
     })
 }
 
-export const renderTasks = function(projectName,taskList){
+export const renderTasks = function(currentProject){
     const tasksFlexContainer = document.querySelector(".tasks-flexbox")
-    
-    const taskHeading = document.querySelector("#tasks-heading")
-    taskHeading.textContent = projectName
+    const taskHeading = document.querySelector("#project-heading")
+    const projectDescription = document.querySelector("#project-description")
+    taskHeading.textContent = currentProject.name
+    projectDescription.textContent  = currentProject.desc
+    const taskList = currentProject.tasks
+    console.log(currentProject)
     tasksFlexContainer.innerHTML=""
     taskList.forEach((currentTask)=>{
-
         const taskDiv = document.createElement("div")
         taskDiv.className = "task"
         // sets the task id

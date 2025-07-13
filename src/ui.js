@@ -21,17 +21,17 @@ const formInputTask = function(){
     const taskProject = taskForm["formTaskProject"].value;
     
     // find the project and append the task there
-
-    projectList.forEach((element) =>{
-        if (element.name == taskProject){
-            element.createTask(
+    // console.log("debug: ",taskProject,projectList)
+    projectList.forEach((currentProject) =>{
+        if (currentProject.name == taskProject){
+            currentProject.createTask(
                 taskName1,
                 taskDescription,
                 taskDueDate,
                 taskPriority
             )
             taskForm.reset()
-            renderTasks(element.name,element.taskList)
+            renderTasks(currentProject)
         }
     })
 }
@@ -57,7 +57,7 @@ const editTaskFormInput = function(e){
                 priority: currentForm["formTaskPriority"].value,
             }
             currentProject.editTaskFromList(currentForm.dataset.taskId,attributes)
-            renderTasks(currentProject.name,currentProject.taskList)
+            renderTasks(currentProject)
         }
     })
 }
@@ -82,7 +82,7 @@ export const eventListeners = function(){
 export const switchToProject = function(e){
     projectList.forEach((currentProject)=>{
         if (currentProject.id == e.target.dataset.projectId){
-            renderTasks(currentProject.name,currentProject.taskList)
+            renderTasks(currentProject)
         }
     })
 }
@@ -90,7 +90,7 @@ export const deleteTaskEvent = function(taskToDelete){
     projectList.forEach((currentProject)=>{
         if (currentProject.id == taskToDelete.parentId){
             currentProject.removeTaskFromList(taskToDelete.id)
-            renderTasks(currentProject.name,currentProject.taskList)
+            renderTasks(currentProject)
         }
     })
 }
