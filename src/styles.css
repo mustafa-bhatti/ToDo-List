@@ -103,7 +103,7 @@ button:active{
     margin-bottom: 10px;
 }
 dialog{
-    width: 35%;
+    width: 50%;
     border-radius: 12px;
     border: 3px solid var(--light-gray);
     box-shadow:-5px 5px 14px 5px var(--gray-low);
@@ -117,7 +117,7 @@ label{
     font-weight:700;
 }
 input{
-    width: 250px;
+    width: 60%;
     padding: 5px 5px;
     border-radius: 12px;
     outline: none;
@@ -137,11 +137,16 @@ select{
     padding: 8px 5px;
     border-radius: 12px;
 }
-
-.form-dropdowns > *{
+.form-dropdowns{
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/* .form-dropdowns > *{
     margin-top: 10px;
     margin-right: 10px;
-}
+} */
 #submitTaskbtn,#editTaskbtn{
     margin-top: 10px;
     max-width: 100px;
