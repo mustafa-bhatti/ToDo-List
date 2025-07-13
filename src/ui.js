@@ -1,17 +1,16 @@
-import task from "./task";
 import { projectList } from ".";
 import Project from "./createProject";
 import { renderTasks, showProjects, updateProjectsInTaskDialog } from "./render";
 
 const taskForm = document.forms["task-form"];
 const porjectForm = document.forms["project-form"];
-
+const editTaskForm = document.forms["edit-task-form"]
 const newTaskButton = document.querySelector(".new-task-btn")
 const newProjectButton = document.querySelector(".new-project-btn")
 
 const taskDialog = document.querySelector("#task-dialog");
 const projectDialog = document.querySelector("#project-dialog");
-
+const editTaskDialog = document.querySelector("#edit-task-dialog")
 
 const formInputTask = function(){
     
@@ -22,6 +21,7 @@ const formInputTask = function(){
     const taskProject = taskForm["formTaskProject"].value;
     
     // find the project and append the task there
+
     projectList.forEach((element) =>{
         if (element.name == taskProject){
             element.createTask(
@@ -31,11 +31,8 @@ const formInputTask = function(){
                 taskPriority
             )
             taskForm.reset()
-            console.log("before: ",element.name,element.taskList)
             renderTasks(element.name,element.taskList)
         }
-        console.log(projectList)
-        
     })
 }
 
@@ -49,13 +46,23 @@ const formInputProject = function(){
     porjectForm.reset();
 }
 
+const editTaskFormInput = function(){
+
+}
+
 /**
  * Sets up all main event listeners for the UI.
  * Call this once after the DOM is loaded.
  */
 export const eventListeners = function(){
-    taskForm.addEventListener("submit",formInputTask)
+    taskForm.addEventListener("submit",function(){
+        formInputTask()
+    })
+    editTaskForm.addEventListener("submit",function(){
+        editTaskFormInput()
+    })
     newTaskButton.addEventListener("click",()=>{
+        taskForm.reset()
         taskDialog.showModal()
     })
     newProjectButton.addEventListener("click",()=>{
@@ -78,4 +85,17 @@ export const deleteTaskEvent = function(taskToDelete){
             renderTasks(currentProject.name,currentProject.taskList)
         }
     })
+}
+
+export const editTaskEvent = function(taskToEdit){
+    // fill the form values with the task attributes
+    const taskName1 = editTaskForm["formTaskName"];
+    const taskDescription = editTaskForm["formTaskDesc"];
+    const taskDueDate  = editTaskForm["formTaskDueDate"];
+    const taskPriority = editTaskForm["formTaskPriority"];
+    taskName1.value = taskToEdit.name
+    taskDescription.value = taskToEdit.desc
+    taskDueDate.value = taskToEdit.date 
+    taskPriority.value = taskToEdit.priority
+    editTaskDialog.showModal()
 }

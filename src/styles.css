@@ -64,13 +64,12 @@ button {
     border-radius: 10px;
 }
 
-.new-task-btn{
+.new-task-btn,.new-project-btn,.edit-task-btn{
     max-width: 140px;
     padding: 13px 20px;
     color: white;
     background: linear-gradient(to right, red, orange);
     border: none;
-    transform: all 3s ease;
 }
 .new-task-btn:active{
     color: black;
@@ -79,16 +78,19 @@ button {
     background: linear-gradient(to right, orange,red);
 }
 .new-project-btn{
-    max-width: 140px;
-    padding: 13px 20px;
-    color: white;
     background: linear-gradient(to right, blue,violet);
-    border: none;
-    transform: all 3s ease;
 }
 .new-project-btn:hover{
-    background: linear-gradient(to left, blue,violet);
-    
+    background: linear-gradient(to left, blue,violet); 
+}
+.edit-task-btn{
+    background: linear-gradient(to left, rgb(17, 161, 251),rgb(255, 230, 40)); 
+}
+.edit-task-btn{
+    background: linear-gradient(to left, rgb(251, 17, 196),rgb(255, 230, 40)); 
+}
+.edit-task-btn:hover{
+    background: linear-gradient(to right, rgb(251, 17, 196),rgb(255, 230, 40)); 
 }
 button:active{
     color: white;
@@ -140,7 +142,7 @@ select{
     margin-top: 10px;
     margin-right: 10px;
 }
-#submitTaskbtn{
+#submitTaskbtn,#editTaskbtn{
     margin-top: 10px;
     max-width: 100px;
 }
@@ -186,5 +188,5 @@ select{
 }
 .icon{
     cursor: pointer;
-    margin-left: 5px;
+    margin-left: 10px;
 }

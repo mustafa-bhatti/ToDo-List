@@ -1,8 +1,7 @@
 import trash from "./images/trash.png"
 import edit from "./images/edit.png"
-import { deleteTaskEvent, switchToProject } from "./ui";
+import { deleteTaskEvent, editTaskEvent, switchToProject } from "./ui";
 const projectDiv = document.querySelector(".projects");
-// TODO 
 
 export const showProjects=function(projectList){
     projectDiv.innerHTML=""
@@ -67,7 +66,6 @@ export const renderTasks = function(projectName,taskList){
             const trashIcon = new Image(18,18)
             trashIcon.src = trash
             trashIcon.classList.add("icon","trash") 
-            // trashIcon.id ="trash"
             trashIcon.alt ="trash"
             trashIcon.addEventListener("click",()=>{
                 deleteTaskEvent(currentTask)
@@ -76,6 +74,10 @@ export const renderTasks = function(projectName,taskList){
             const editIcon = new Image(16,16)
             editIcon.src = edit
             editIcon.classList.add("icon","edit") 
+            editIcon.alt = "edit"
+            editIcon.addEventListener("click",()=>{
+                editTaskEvent(projectName,currentTask)
+            })
 
             icons.appendChild(trashIcon)
             icons.appendChild(editIcon)

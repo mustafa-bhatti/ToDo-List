@@ -73,7 +73,7 @@
 
                 <div class="input-div">
                 <label for="formTaskDueDate">Due Date</label>
-                <input id="formTaskDueDate" name="formTaskDueDate" type="Date" required>
+                <input id="formTaskDueDate" name="formTaskDueDate" type="Date" value="2025-05-12" required>
 
                 <div class="form-dropdowns">
                 <label for="formTaskPriority">Priority</label>
@@ -91,6 +91,37 @@
                 </div>
 
                 <button type="submit" id="submitTaskbtn" class="new-task-btn">Add</button>
+            </form>
+            </dialog>
+        <!-- Edit Task Dialog -->
+        <dialog id="edit-task-dialog" closedby="any">
+            <form action="#" method="dialog" id="new-task-form" name="edit-task-form">
+                <h1>Edit Task</h1>
+                <div class="input-div">
+                <label for="formTaskName">Name</label>
+                <input id="formTaskName" name="formTaskName" type="text" required>
+                </div>
+
+                <div class="input-div">
+                <label for="formTaskDesc">Description</label>
+                <input id="formTaskDesc" name="formTaskDesc" type="text">
+                </div>
+
+                <div class="input-div">
+                <label for="formTaskDueDate">Due Date</label>
+                <input id="formTaskDueDate" name="formTaskDueDate" type="Date" value="2025-05-12" required>
+
+                <div class="form-dropdowns">
+                <label for="formTaskPriority">Priority</label>
+                <select id="formTaskPriority" name="formTaskPriority">
+                    <option>Normal</option>
+                    <option>High</option>
+                    <option>Low</option>
+                </select>
+                </div>
+                </div>
+
+                <button type="submit" id="editTaskbtn" class="edit-task-btn">Edit</button>
             </form>
             </dialog>
             <!-- Project Dialog -->
