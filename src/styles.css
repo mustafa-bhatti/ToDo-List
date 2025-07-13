@@ -165,7 +165,9 @@ select{
 }
 .Low{
     border: 2px solid orange;
-
+}
+.task-done{
+    text-decoration: line-through;
 }
 .task p{
     margin-top: 5px;

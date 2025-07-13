@@ -45,6 +45,16 @@ export const renderTasks = function(currentProject){
 
         const taskHeading = document.createElement("div")
         taskHeading.className = "task-heading"
+        taskDiv.addEventListener("click",function(){
+            currentTask.isComplete()
+            renderTasks(currentProject)
+        })
+        if (currentTask.taskDoneFlag){
+            taskHeading.classList.add("task-done")
+        }
+        else {
+            taskHeading.className = "task-heading"    
+        }
         // task heading children
             const heading = document.createElement("h2")
             heading.textContent = currentTask.name

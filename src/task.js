@@ -6,6 +6,7 @@ export default class Task {
         this.taskPriority = priority
         this.taskId = crypto.randomUUID()
         this.taskProjectId = taskProjectReferenceId
+        this.isTaskDone = false
     }
     //getters
     get id(){
@@ -25,6 +26,12 @@ export default class Task {
     }
     get parentId(){
         return this.taskProjectId
+    }
+    get taskDoneFlag(){
+        return this.isTaskDone
+    }
+    isComplete(){
+        this.isTaskDone = !this.isTaskDone
     }
 
     updateTaskDetails(attributes){

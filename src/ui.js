@@ -93,7 +93,6 @@ const showFutureTasks = function(){
         })
     })
     renderTasks(futureTaskObject)
-    console.log(futureTaskObject.taskList)
 }
 /**
  * Sets up all main event listeners for the UI.
