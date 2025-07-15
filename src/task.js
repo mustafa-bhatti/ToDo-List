@@ -1,10 +1,16 @@
 export default class Task {
-    constructor(title,description,dueDate,priority,taskProjectReferenceId){
+    constructor(title,description,dueDate,priority,taskProjectReferenceId,taskid = false){
         this.title = title,
         this.description = description,
         this.dueDate = dueDate,
         this.taskPriority = priority
-        this.taskId = crypto.randomUUID()
+        if (!taskid){
+            this.taskId = crypto.randomUUID()
+        }
+        else {
+            this.taskId = taskid
+        }
+        
         this.taskProjectId = taskProjectReferenceId
         this.isTaskDone = false
     }

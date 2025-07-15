@@ -1,15 +1,19 @@
 import Task from "./task"
 
 export default class Project{
-    constructor(name,description){
-        this.projectName = name,
-        this.projectDescription = description,
-        this.taskList = [],
-        this.projectId = crypto.randomUUID()
+    constructor(name,description,projectid = false){
+        this.projectName = name
+        this.projectDescription = description
+        this.taskList = []
+        if (!projectid){
+            this.projectId = crypto.randomUUID()
+        }
+        else {
+            this.projectId = projectid
+        }
     }
-
-    createTask(taskName,taskDescription,dueDate,priority){
-        const taskTobeAdded = new Task(taskName,taskDescription,dueDate,priority,this.projectId)
+    createTask(taskName,taskDescription,dueDate,priority,taskId=false){
+        const taskTobeAdded = new Task(taskName,taskDescription,dueDate,priority,this.projectId,taskId)
         this.taskList.push(taskTobeAdded)
     }
     addTask(taskInstance){
@@ -19,7 +23,6 @@ export default class Project{
         const index = this.taskList.findIndex(task => task.id == taskId)
         this.taskList.splice(index,1)
     }
-
     editTaskFromList(taskId,attributes){
         const index = this.taskList.findIndex(task => task.id == taskId)
         this.taskList[index].updateTaskDetails(attributes)

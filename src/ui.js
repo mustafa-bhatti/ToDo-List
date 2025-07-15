@@ -37,6 +37,8 @@ const formInputTask = function(){
             )
             taskForm.reset()
             renderTasks(currentProject)
+            localStorage.clear()
+            localStorage.setItem("projects",JSON.stringify(projectList))
         }
     })
 }
@@ -49,6 +51,8 @@ const formInputProject = function(){
     showProjects(projectList) 
     updateProjectsInTaskDialog(projectList)
     porjectForm.reset();
+    localStorage.clear()
+    localStorage.setItem("projects",JSON.stringify(projectList))
 }
 
 const editTaskFormInput = function(e){
@@ -63,11 +67,13 @@ const editTaskFormInput = function(e){
             }
             currentProject.editTaskFromList(currentForm.dataset.taskId,attributes)
             renderTasks(currentProject)
+            localStorage.clear()
+            localStorage.setItem("projects",JSON.stringify(projectList))
         }
     })
 }
 export const showTodayTasks = function(){
-    const todayDate = format(new Date,'yyyy-mm-dd')
+    const todayDate = format(new Date,'yyyy-MM-dd')
     const todayTaskObject = new Project("TODAY","")
     projectList.forEach((currentProject)=>{
         currentProject.taskList.forEach((currentTask)=>{
@@ -81,11 +87,11 @@ export const showTodayTasks = function(){
 }
 
 const showFutureTasks = function(){
-    const todayDate = format(new Date(),'yyyy-mm-dd')
+    const todayDate = format(new Date(),'yyyy-MM-dd')
     const futureTaskObject = new Project("UPCOMMING","")
     projectList.forEach((currentProject)=>{
         currentProject.taskList.forEach((currentTask)=>{
-
+            console.log(currentTask.date," Today Date: ",todayDate)
             console.log(isAfter(currentTask.date,todayDate))
             if (isAfter(currentTask.date,todayDate)){
                 futureTaskObject.addTask(currentTask)
@@ -128,6 +134,8 @@ export const deleteTaskEvent = function(taskToDelete){
         if (currentProject.id == taskToDelete.parentId){
             currentProject.removeTaskFromList(taskToDelete.id)
             renderTasks(currentProject)
+            localStorage.clear()
+            localStorage.setItem("projects",JSON.stringify(projectList))
         }
     })
 }
