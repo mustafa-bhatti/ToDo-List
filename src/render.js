@@ -46,7 +46,7 @@ export const renderTasks = function(currentProject){
 
         const taskHeading = document.createElement("div")
         taskHeading.className = "task-heading"
-        taskDiv.addEventListener("click",function(){
+        taskHeading.addEventListener("click",function(){
             currentTask.isComplete()
             renderTasks(currentProject)
         })

@@ -1,6 +1,6 @@
 import "./styles.css"
 import Project from "./createProject"
-import { showProjects , renderTasks } from "./render"
+import { showProjects , renderTasks, updateProjectsInTaskDialog } from "./render"
 import { eventListeners, showTodayTasks } from "./ui"
 export const projectList = []
 const initialLoad = (function(){
@@ -11,6 +11,7 @@ const initialLoad = (function(){
     showProjects(projectList) 
     eventListeners()
     showTodayTasks()
+    updateProjectsInTaskDialog(projectList)
 
 
 
