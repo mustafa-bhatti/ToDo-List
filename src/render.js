@@ -1,5 +1,6 @@
 import trash from "./images/trash.png"
 import edit from "./images/edit.png"
+import { format } from "date-fns";
 import { deleteTaskEvent, editTaskEvent, switchToProject } from "./ui";
 const projectDiv = document.querySelector(".projects");
 
@@ -60,7 +61,8 @@ export const renderTasks = function(currentProject){
             heading.textContent = currentTask.name
             // date
             const dateP = document.createElement("p")
-            dateP.textContent = currentTask.date
+            const formatDate = format(currentTask.date,'PPPP')
+            dateP.textContent = formatDate
 
 
         taskHeading.appendChild(heading)

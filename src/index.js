@@ -5,7 +5,7 @@ import { eventListeners } from "./ui"
 export const projectList = []
 const initialLoad = (function(){
     const defaultProject = new Project("Default","TBD");
-    defaultProject.createTask("Learn Web Dev","TBD","2026-05-08","Normal")
+    defaultProject.createTask("Learn Web Dev","TBD","2025-07-15","Normal")
     projectList.push(defaultProject)
     console.log(projectList)
     // render the initial default p roject

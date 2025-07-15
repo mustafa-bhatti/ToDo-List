@@ -23,8 +23,8 @@ const formInputTask = function(){
     const taskDueDate  = taskForm["formTaskDueDate"].value;
     const taskPriority = taskForm["formTaskPriority"].value;
     const taskProject = taskForm["formTaskProject"].value;
-    const formatDate = format(taskDueDate,'PPPP')
-    console.log(formatDate)
+
+
     // find the project and append the task there
     // console.log("debug: ",taskProject,projectList)
     projectList.forEach((currentProject) =>{
@@ -32,7 +32,7 @@ const formInputTask = function(){
             currentProject.createTask(
                 taskName1,
                 taskDescription,
-                formatDate,
+                taskDueDate,
                 taskPriority
             )
             taskForm.reset()
@@ -67,7 +67,7 @@ const editTaskFormInput = function(e){
     })
 }
 export const showTodayTasks = function(){
-    const todayDate = format(new Date,'PPPP')
+    const todayDate = format(new Date,'yyyy-mm-dd')
     const todayTaskObject = new Project("TODAY","")
     projectList.forEach((currentProject)=>{
         currentProject.taskList.forEach((currentTask)=>{
@@ -81,12 +81,12 @@ export const showTodayTasks = function(){
 }
 
 const showFutureTasks = function(){
-    const todayDate = format(new Date,'yyyy-MM-dd')
+    const todayDate = format(new Date(),'yyyy-mm-dd')
     const futureTaskObject = new Project("UPCOMMING","")
     projectList.forEach((currentProject)=>{
         currentProject.taskList.forEach((currentTask)=>{
-            console.log(currentTask.date," today DATE",todayDate)
-            console.log(isAfter(new Date(currentTask.date),new Date()))
+
+            console.log(isAfter(currentTask.date,todayDate))
             if (isAfter(currentTask.date,todayDate)){
                 futureTaskObject.addTask(currentTask)
             }
