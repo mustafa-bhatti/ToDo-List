@@ -171,9 +171,21 @@ select{
 .Low{
     border: 2px solid orange;
 }
-.task-done{
-    text-decoration: line-through;
+.project-span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-left: 20px;
+    color: var(--gray-light);
+    /* text-decoration: none !important; */
+    display: inline-block;
+
 }
+
+.task-done{
+    text-decoration-line:line-through ;
+}
+
+
 .task p{
     margin-top: 5px;
 }

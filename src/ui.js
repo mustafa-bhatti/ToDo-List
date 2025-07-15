@@ -91,8 +91,6 @@ const showFutureTasks = function(){
     const futureTaskObject = new Project("UPCOMMING","")
     projectList.forEach((currentProject)=>{
         currentProject.taskList.forEach((currentTask)=>{
-            console.log(currentTask.date," Today Date: ",todayDate)
-            console.log(isAfter(currentTask.date,todayDate))
             if (isAfter(currentTask.date,todayDate)){
                 futureTaskObject.addTask(currentTask)
             }

@@ -59,6 +59,14 @@ export const renderTasks = function(currentProject){
         // task heading children
             const heading = document.createElement("h2")
             heading.textContent = currentTask.name
+            // appending project name for Today and Upcomming Tabs
+            if (currentProject.name == "TODAY" || currentProject.name == "UPCOMMING"){
+                const projectSpan = document.createElement("span")
+                projectSpan.textContent = `${currentTask.parentName}`
+                projectSpan.className="project-span"
+                heading.appendChild(projectSpan)
+            }
+
             // date
             const dateP = document.createElement("p")
             const formatDate = format(currentTask.date,'PPPP')

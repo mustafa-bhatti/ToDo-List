@@ -1,9 +1,11 @@
 export default class Task {
-    constructor(title,description,dueDate,priority,taskProjectReferenceId,taskid = false){
+    constructor(title,description,dueDate,priority,taskProjectReferenceId,projectName,taskid = false){
         this.title = title,
         this.description = description,
         this.dueDate = dueDate,
         this.taskPriority = priority
+        this.projectName= projectName
+        
         if (!taskid){
             this.taskId = crypto.randomUUID()
         }
@@ -36,6 +38,9 @@ export default class Task {
     get taskDoneFlag(){
         return this.isTaskDone
     }
+    get parentName(){
+        return this.projectName
+    }
     isComplete(){
         this.isTaskDone = !this.isTaskDone
     }
@@ -46,5 +51,4 @@ export default class Task {
         this.dueDate = attributes.dueDate,
         this.taskPriority = attributes.priority
     }
-    
 }

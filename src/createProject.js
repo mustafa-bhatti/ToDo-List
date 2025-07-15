@@ -13,8 +13,8 @@ export default class Project{
         }
     }
     createTask(taskName,taskDescription,dueDate,priority,taskId=false){
-        const taskTobeAdded = new Task(taskName,taskDescription,dueDate,priority,this.projectId,taskId)
-        this.taskList.push(taskTobeAdded)
+        const taskTobeAdded = new Task(taskName,taskDescription,dueDate,priority,this.projectId,this.projectName,taskId)
+         this.taskList.push(taskTobeAdded)
     }
     addTask(taskInstance){
         this.taskList.push(taskInstance)
