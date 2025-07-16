@@ -147,6 +147,7 @@ select{
     margin-top: 10px;
     margin-right: 10px;
 } */
+
 #submitTaskbtn,#editTaskbtn{
     margin-top: 10px;
     max-width: 100px;
@@ -180,7 +181,10 @@ select{
     display: inline-block;
 
 }
-
+#project-description{
+    margin: 0;
+    padding-bottom: 10px;
+}
 .task-done{
     text-decoration-line:line-through ;
 }
@@ -189,10 +193,18 @@ select{
 .task p{
     margin-top: 5px;
 }
-.task-heading,.task-content{
+.task-heading,.task-content,.project-header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
+.project-header{
+    margin-right: 10px;
+}
+.delete-project-btn{
+    visibility: hidden;
+}
+
 .task-heading > *{
     margin-top:0px;
     margin-bottom: 0px;

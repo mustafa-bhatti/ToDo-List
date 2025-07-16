@@ -83,7 +83,6 @@ export const showTodayTasks = function(){
         })
     })
     renderTasks(todayTaskObject)
-    console.log(todayTaskObject.taskList)
 }
 
 const showFutureTasks = function(){
@@ -153,4 +152,18 @@ export const editTaskEvent = function(taskToEdit){
 
 
     editTaskDialog.showModal()
+}
+export const deleteProjectEvent = function(e){
+    console.log(projectList)
+    const btnProjectId = e.target.dataset.projectId
+
+    console.log(btnProjectId)
+    const index = projectList.findIndex(currentProject => currentProject.id == btnProjectId)
+    projectList.splice(index,1)
+    showProjects(projectList)
+    showTodayTasks()
+    localStorage.clear()
+    localStorage.setItem("projects",JSON.stringify(projectList))
+
+
 }

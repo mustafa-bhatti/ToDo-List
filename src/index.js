@@ -22,7 +22,7 @@ function loadLocalProjects(){
     if (localProjects){
         localProjects = JSON.parse(localProjects)
         for (let index in localProjects){
-            console.log(localProjects[index])
+            // console.log(localProjects[index])
             const projectName = localProjects[index].projectName
             const projectDesc = localProjects[index].projectDescription
             const projectId = localProjects[index].projectId

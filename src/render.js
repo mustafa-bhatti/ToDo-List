@@ -1,7 +1,7 @@
 import trash from "./images/trash.png"
 import edit from "./images/edit.png"
 import { format } from "date-fns";
-import { deleteTaskEvent, editTaskEvent, switchToProject } from "./ui";
+import { deleteProjectEvent, deleteTaskEvent, editTaskEvent, switchToProject } from "./ui";
 const projectDiv = document.querySelector(".projects");
 
 export const showProjects=function(projectList){
@@ -25,13 +25,34 @@ export const updateProjectsInTaskDialog = function(projectList){
         projectSelectElement.appendChild(opt)
     })
 }
+const renderProjectHeader = function(currentProject){
+    const taskHeading = document.querySelector("#project-heading")
+    const projectDescription = document.querySelector("#project-description")
+    const projectHeader = document.querySelector(".project-header")
+    const deleteButtonDiv = projectHeader.querySelector("div")
+    deleteButtonDiv.innerHTML = ""
+
+    taskHeading.textContent = currentProject.name
+    projectDescription.textContent  = currentProject.desc
+    if (currentProject.name != "TODAY" & currentProject.name != "UPCOMMING"){
+
+    const deleteProjectBtn = document.createElement("button")
+    deleteProjectBtn.textContent = "Delete"
+    deleteProjectBtn.dataset.projectId = currentProject.id
+    deleteProjectBtn.addEventListener("click",deleteProjectEvent)
+    deleteButtonDiv.appendChild(deleteProjectBtn)
+    }
+
+    // deleteProjectBtn.classList.remove("delete-project-btn")
+    // deleteProjectBtn.dataset.projectId = currentProject.id
+    // deleteProjectBtn.addEventListener("click",deleteProjectEvent)
+}
+
+
 
 export const renderTasks = function(currentProject){
     const tasksFlexContainer = document.querySelector(".tasks-flexbox")
-    const taskHeading = document.querySelector("#project-heading")
-    const projectDescription = document.querySelector("#project-description")
-    taskHeading.textContent = currentProject.name
-    projectDescription.textContent  = currentProject.desc
+    renderProjectHeader(currentProject)
     const taskList = currentProject.tasks
     tasksFlexContainer.innerHTML=""
     taskList.forEach((currentTask)=>{
@@ -65,6 +86,9 @@ export const renderTasks = function(currentProject){
                 projectSpan.textContent = `${currentTask.parentName}`
                 projectSpan.className="project-span"
                 heading.appendChild(projectSpan)
+            }
+            else{
+
             }
 
             // date
