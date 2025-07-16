@@ -87,7 +87,6 @@ export const renderTasks = function (currentProject) {
       projectSpan.textContent = `${currentTask.parentName}`;
       projectSpan.className = "project-span";
       heading.appendChild(projectSpan);
-    } else {
     }
 
     // date
