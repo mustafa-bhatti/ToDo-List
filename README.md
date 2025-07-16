@@ -1,11 +1,8 @@
-This looks like a ToDo list application. Here's a README file for its GitHub repository:
-
------
-
 # ToDo App
 
 A simple yet effective ToDo list application built with JavaScript, Webpack, and `date-fns`. This application helps you organize your tasks into projects, set due dates and priorities, and easily manage your daily and upcoming activities.
 
+![ToDo App Screenshot](./screenshot.png)
 ## Features
 
   * **Task Management**: Create, edit, and delete tasks with a name, description, due date, and priority.
